@@ -48,6 +48,7 @@ a = Analysis(
         # Empacota toda a pasta app/assets preservando a estrutura relativa.
         # Se assets/ tiver subpastas (icons/, images/), isso já cobre.
         ('assets', 'assets'),
+        ('core/licensing/public_key.pem', 'core/licensing'),
     ],
     hiddenimports=[],
     hookspath=[],

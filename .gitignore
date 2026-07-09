@@ -40,6 +40,9 @@ htmlcov/
 *.spec.bak
 BUILD_INFO.json
 .env
+keys/
+*.lic
+scripts/registro_licencas.db
 
 # Application data & logs (local)
 logs/

@@ -1,6 +1,6 @@
 import sys
 import os
-from PySide6.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication, QDialog
 from PySide6.QtGui import QIcon, QPixmap, QPainter, QLinearGradient, QColor, QFont
 from PySide6.QtCore import Qt, QRectF
 
@@ -75,7 +75,16 @@ def main():
     if os.path.exists(ico_path):
         app.setWindowIcon(QIcon(ico_path))
         
-    # 3. Create and show MainWindow
+    # 3. Licensing check
+    from app.core.licensing.validator import obter_status_licenca
+    status = obter_status_licenca()
+    if not status.get("valido"):
+        from app.ui.activation_dialog import ActivationDialog
+        dialog = ActivationDialog(status_inicial=status)
+        if dialog.exec() != QDialog.Accepted:
+            sys.exit(0)
+            
+    # 4. Create and show MainWindow
     window = MainWindow()
     window.show()
     
