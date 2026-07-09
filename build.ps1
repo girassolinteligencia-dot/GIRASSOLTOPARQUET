@@ -52,12 +52,12 @@ if ($pytestCmd) {
 # 4. Executar PyInstaller
 Write-Host "[4/5] Executando PyInstaller..." -ForegroundColor Green
 if (Test-Path "build") { Remove-Item -Recurse -Force "build" }
-if (Test-Path "dist\ALLtoParquet.exe") { Remove-Item -Force "dist\ALLtoParquet.exe" }
+if (Test-Path "dist\GIRASSOLtoPARQUET.exe") { Remove-Item -Force "dist\GIRASSOLtoPARQUET.exe" }
 
-pyinstaller ALLtoParquet.spec --clean
+pyinstaller app/GIRASSOLtoPARQUET.spec --clean
 
-if (-not (Test-Path "dist\ALLtoParquet.exe")) {
-    Write-Error "Erro: O executavel dist\ALLtoParquet.exe nao foi gerado."
+if (-not (Test-Path "dist\GIRASSOLtoPARQUET.exe")) {
+    Write-Error "Erro: O executavel dist\GIRASSOLtoPARQUET.exe nao foi gerado."
     exit 1
 }
 Write-Host "Executavel gerado com sucesso!" -ForegroundColor Green
@@ -69,7 +69,7 @@ import sys
 import pefile
 
 try:
-    pe = pefile.PE("dist/ALLtoParquet.exe")
+    pe = pefile.PE("dist/GIRASSOLtoPARQUET.exe")
     if not hasattr(pe, 'VS_VERSIONINFO'):
         print('ERRO: VS_VERSIONINFO nao encontrado no executavel.')
         sys.exit(1)
@@ -115,14 +115,14 @@ if ($valExitCode -ne 0) {
 
 # 6. Gerar dist\BUILD_INFO.json com metadados do build
 Write-Host "Gerando dist\BUILD_INFO.json..." -ForegroundColor Green
-$exeFile = Get-Item "dist\ALLtoParquet.exe"
-$hash = Get-FileHash "dist\ALLtoParquet.exe" -Algorithm SHA256
+$exeFile = Get-Item "dist\GIRASSOLtoPARQUET.exe"
+$hash = Get-FileHash "dist\GIRASSOLtoPARQUET.exe" -Algorithm SHA256
 $timestamp = [DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")
 $sizeBytes = $exeFile.Length
 $version = "1.0.0"
 
 $buildInfo = @{
-    "filename" = "ALLtoParquet.exe"
+    "filename" = "GIRASSOLtoPARQUET.exe"
     "version" = $version
     "sha256" = $hash.Hash.ToLower()
     "timestamp_utc" = $timestamp
@@ -134,7 +134,7 @@ $buildInfo | Out-File -FilePath "dist\BUILD_INFO.json" -Encoding utf8
 
 Write-Host "=========================================" -ForegroundColor Green
 Write-Host " Build concluido com SUCESSO!" -ForegroundColor Green
-Write-Host " Arquivo: dist\ALLtoParquet.exe" -ForegroundColor Green
+Write-Host " Arquivo: dist\GIRASSOLtoPARQUET.exe" -ForegroundColor Green
 Write-Host " Tamanho: $([Math]::Round($sizeBytes / 1MB, 2)) MB" -ForegroundColor Green
 Write-Host " Hash SHA-256: $($hash.Hash.ToLower())" -ForegroundColor Green
 Write-Host "=========================================" -ForegroundColor Green

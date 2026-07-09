@@ -1,4 +1,8 @@
 # -*- mode: python ; coding: utf-8 -*-
+#
+# [DEPRECATED] Este arquivo .spec está descontinuado.
+# Use o spec oficial de produção em: app/GIRASSOLtoPARQUET.spec
+#
 
 
 a = Analysis(

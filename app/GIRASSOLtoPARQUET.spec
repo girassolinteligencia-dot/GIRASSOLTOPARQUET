@@ -41,13 +41,13 @@ DEV_EXCLUDES = [
 ]
 
 a = Analysis(
-    ['app/main.py'],
+    ['main.py'],
     pathex=['.'],
     binaries=[],
     datas=[
         # Empacota toda a pasta app/assets preservando a estrutura relativa.
         # Se assets/ tiver subpastas (icons/, images/), isso já cobre.
-        ('app/assets', 'assets'),
+        ('assets', 'assets'),
     ],
     hiddenimports=[],
     hookspath=[],
@@ -82,7 +82,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon='app/assets/icon.ico',     # ajustar nome se diferente; remover linha se não houver ícone
+    icon='assets/icon.ico',     # ajustar nome se diferente; remover linha se não houver ícone
     version='version_info.txt',     # ver arquivo version_info.txt anexo
 )
 

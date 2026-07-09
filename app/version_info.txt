@@ -28,7 +28,7 @@ VSVersionInfo(
         StringStruct(u'InternalName', u'ConversorParquetOffline'),
         StringStruct(u'LegalCopyright', u'© 2026 Girassol Inteligência. Todos os direitos reservados.'),
         StringStruct(u'OriginalFilename', u'GIRASSOLtoPARQUET.exe'),
-        StringStruct(u'ProductName', u'ConversorParquetOffline'),
+        StringStruct(u'ProductName', u'GIRASSOLtoPARQUET'),
         StringStruct(u'ProductVersion', u'1.0.0.0')])
       ]),
     VarFileInfo([VarStruct(u'Translation', [1046, 1200])])  # 1046 = pt-BR, 1200 = Unicode
