@@ -44,6 +44,9 @@ keys/
 *.lic
 scripts/registro_licencas.db
 licensing_service/.env
+cloudflare-worker/.dev.vars
+cloudflare-worker/.wrangler/
+cloudflare-worker/node_modules/
 
 # Application data & logs (local)
 logs/

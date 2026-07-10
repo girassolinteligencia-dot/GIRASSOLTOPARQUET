@@ -1,0 +1,7 @@
+name = "girassol-licensing-worker"
+main = "src/index.ts"
+compatibility_date = "2026-07-10"
+
+[[kv_namespaces]]
+binding = "LICENCAS_KV"
+id = "cc501ed1507c497787abc2093e9f9142"
