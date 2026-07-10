@@ -43,6 +43,7 @@ BUILD_INFO.json
 keys/
 *.lic
 scripts/registro_licencas.db
+licensing_service/.env
 
 # Application data & logs (local)
 logs/
